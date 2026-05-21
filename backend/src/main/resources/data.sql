@@ -1,4 +1,4 @@
--- Los distinto géneros:
+-- Los distintos géneros:
 INSERT INTO Generos (nombre_genero) VALUES ('Accion');
 INSERT INTO Generos (nombre_genero) VALUES ('Comedia');
 INSERT INTO Generos (nombre_genero) VALUES ('Drama');
