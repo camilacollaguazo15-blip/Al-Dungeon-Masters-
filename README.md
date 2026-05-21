@@ -1,12 +1,18 @@
-Desarrollo del Backend (Spring Boot) - José Miguel Marcos Guerrero
-Durante el desarrollo del backend implementé la estructura completa de la API utilizando Spring Boot,
+Desarrollo del Backend (Spring Boot) – José Miguel Marcos Guerrero y Ian Borja Tomás.
+Durante el desarrollo del backend trabajamos conjuntamente en la construcción completa de la API utilizando Spring Boot,
 organizando el proyecto en controladores, modelos y repositorios dentro del paquete com.dungeonmastersfilms.app.
-Definí las entidades Genero y Pelicula con sus relaciones JPA y desarrollé los endpoints REST necesarios para la
-gestión de ambos recursos. También resolví problemas de compilación derivados de paquetes antiguos, reorganicé la
-estructura del proyecto, limpié el repositorio y subí la versión funcional a GitHub tras sincronizar los cambios del equipo.
+Definimos las entidades Genero y Pelicula, configurando sus relaciones JPA y desarrollando los endpoints REST necesarios
+para la gestión de ambos recursos.
 
-Finalmente, verifiqué el correcto arranque del servidor, probé los endpoints y dejé el backend preparado para que el
-resto del equipo pudiera integrar la base de datos y continuar con el desarrollo del frontend.
+Además, realizamos la configuración de la base de datos H2, preparando el entorno para que el backend pudiera funcionar
+sin necesidad de un servidor externo. Se creó y ajustó el archivo application.yaml, habilitando la consola H2 y permitiendo
+la generación automática de tablas. También se elaboró el script data.sql con datos de ejemplo para facilitar las pruebas
+del equipo de frontend.
+
+Durante el proceso resolvimos problemas de compilación derivados de paquetes antiguos, reorganizamos la estructura del proyecto,
+limpiamos el repositorio y subimos la versión funcional a GitHub tras sincronizar los cambios del equipo. Finalmente,
+verificamos el correcto arranque del servidor, probamos los endpoints y dejamos el backend completamente preparado para
+la integración con la base de datos y el desarrollo del frontend en Angular.
 
 Tareas realizadas:
 
@@ -14,6 +20,8 @@ Tareas realizadas:
 · Organización del proyecto en controladores, modelos y repositorios.
 · Implementación de las entidades Genero y Pelicula con relaciones JPA.
 · Desarrollo de los endpoints REST para gestionar géneros y películas.
+· Configuración de la base de datos H2 y habilitación de la consola /h2-console.
+· Creación del archivo data.sql con datos de ejemplo para pruebas.
 · Eliminación del paquete inicial com.example y migración a com.dungeonmastersfilms.app.
 · Resolución de errores de compilación y ajuste de la estructura del proyecto.
 · Limpieza del repositorio y preparación para trabajo colaborativo.
