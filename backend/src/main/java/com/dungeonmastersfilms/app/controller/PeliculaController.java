@@ -17,13 +17,16 @@ public class PeliculaController {
         this.peliculaRepository = peliculaRepository;
     }
 
-    // GET /peliculas
     @GetMapping
     public List<Pelicula> getAllPeliculas() {
         return peliculaRepository.findAll();
     }
 
-    // POST /peliculas
+    @GetMapping("/{id}")
+    public Pelicula getPeliculaById(@PathVariable Long id) {
+        return peliculaRepository.findById(id).orElse(null);
+    }
+
     @PostMapping
     public Pelicula createPelicula(@RequestBody Pelicula pelicula) {
         return peliculaRepository.save(pelicula);
