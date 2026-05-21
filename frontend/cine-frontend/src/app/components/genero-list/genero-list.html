@@ -1,0 +1,42 @@
+<!-- src/app/components/genero-list/genero-list.html -->
+<div class="contenedor">
+
+  <div class="cabecera">
+    <h1>🎬 Géneros</h1>
+    <a routerLink="/generos/nuevo" class="btn-añadir">+ Añadir género</a>
+  </div>
+
+  <!-- Indicador de carga -->
+  @if (cargando()) {
+    <div class="cargando">
+      <p>Cargando géneros...</p>
+    </div>
+  }
+
+  <!-- Mensaje de error si el backend no responde -->
+  @if (error()) {
+    <div class="error">
+      <p>⚠️ {{ error() }}</p>
+    </div>
+  }
+
+  <!-- Lista de géneros -->
+  @if (!cargando() && !error()) {
+    @if (generos().length === 0) {
+      <p class="vacio">No hay géneros todavía. ¡Añade el primero!</p>
+    } @else {
+      <ul class="lista-generos">
+        @for (genero of generos(); track genero.id) {
+          <li class="item-genero">
+            <div class="info-genero">
+              <span class="nombre">{{ genero.nombre }}</span>
+              <span class="descripcion">{{ genero.descripcion }}</span>
+            </div>
+            <a [routerLink]="['/generos', genero.id]" class="btn-ver">Ver →</a>
+          </li>
+        }
+      </ul>
+    }
+  }
+
+</div>

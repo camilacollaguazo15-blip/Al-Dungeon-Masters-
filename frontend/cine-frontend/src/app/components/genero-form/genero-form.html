@@ -1,0 +1,65 @@
+<!-- src/app/components/genero-form/genero-form.html -->
+<div class="contenedor">
+
+  <a routerLink="/generos" class="btn-volver">← Volver a géneros</a>
+
+  <div class="tarjeta-form">
+    <h1>🎬 Nuevo Género</h1>
+
+    <form [formGroup]="generoForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <!-- Campo Nombre -->
+      <div class="campo" [class.campo-error]="nombre.invalid && nombre.touched">
+        <label for="nombre">Nombre *</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          placeholder="Ej: Acción, Drama, Comedia..."
+        />
+        <!-- Mensajes de validación -->
+        @if (nombre.touched && nombre.errors?.['required']) {
+          <span class="msg-error">El nombre es obligatorio.</span>
+        }
+        @if (nombre.touched && nombre.errors?.['minlength']) {
+          <span class="msg-error">El nombre debe tener al menos 3 caracteres.</span>
+        }
+      </div>
+
+      <!-- Campo Descripción -->
+      <div class="campo" [class.campo-error]="descripcion.invalid && descripcion.touched">
+        <label for="descripcion">Descripción *</label>
+        <textarea
+          id="descripcion"
+          formControlName="descripcion"
+          rows="4"
+          placeholder="Describe el género cinematográfico..."
+        ></textarea>
+        @if (descripcion.touched && descripcion.errors?.['required']) {
+          <span class="msg-error">La descripción es obligatoria.</span>
+        }
+        @if (descripcion.touched && descripcion.errors?.['maxlength']) {
+          <span class="msg-error">Máximo 250 caracteres.</span>
+        }
+        <!-- Contador de caracteres -->
+        <span class="contador">
+          {{ descripcion.value?.length || 0 }}/250
+        </span>
+      </div>
+
+      <!-- Botones -->
+      <div class="acciones">
+        <a routerLink="/generos" class="btn-cancelar">Cancelar</a>
+        <button
+          type="submit"
+          class="btn-guardar"
+          [disabled]="guardando"
+        >
+          {{ guardando ? 'Guardando...' : 'Guardar' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
