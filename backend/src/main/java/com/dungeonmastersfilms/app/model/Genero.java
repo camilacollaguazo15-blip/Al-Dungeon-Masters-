@@ -20,10 +20,6 @@ public class Genero {
 
     public Genero() {}
 
-    public Genero(String nombre_genero) {
-        this.nombre_genero = nombre_genero;
-    }
-
     public Long getId_genero() { return id_genero; }
     public void setId_genero(Long id_genero) { this.id_genero = id_genero; }
 

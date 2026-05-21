@@ -20,3 +20,26 @@ Tareas realizadas:
 · Sincronización con el repositorio remoto y subida del backend funcional a GitHub.
 · Verificación del arranque del servidor y pruebas de los endpoints.
 · Preparación del backend para la integración con la base de datos y el frontend Angular.
+
+Integración y Desarrollo del Frontend (Angular) Camila Collaguazo Chiluisa y Marco Calero Gallego
+Durante el desarrollo del frontend completamos la integración de la aplicación con la API REST de Spring Boot y solucionamos
+diversos problemas de conexión y serialización de datos. Implementamos las pantallas de películas (el listado de películas en /peliculas y el formulario de creación en /peliculas/nuevo). Sincronizamos los modelos de datos del
+frontend con las entidades JPA del backend, corregimos la URL base de los servicios y agregamos la dependencia zone.js para asegurar
+el correcto arranque de la aplicación. En el backend, resolvimos el bucle de serialización infinita aplicando anotaciones de Jackson
+a las relaciones bidireccionales y eliminamos un constructor redundante que causaba problemas al intentar registrar nuevas películas.
+
+Finalmente, verificamos la comunicación entre ambos entornos, comprobamos el almacenamiento persistente en la base de datos en memoria H2
+y creamos recursos para facilitar el arranque del proyecto tanto de forma manual como automatizada.
+
+Tareas realizadas:
+
+· Implementación de la vista de listado de películas con su respectivo diseño CSS.
+· Creación del formulario reactivo de películas con validaciones y mapeo de campos.
+· Registro y configuración de las rutas de películas en el enrutador de Angular.
+· Sincronización de los modelos typescript con las estructuras de las tablas H2.
+· Corrección de la URL base del servicio de géneros eliminando prefijos erróneos.
+· Solución a la pantalla en blanco en el navegador instalando e importando la librería zone.js.
+· Resolución de la recursión infinita en la API REST utilizando anotaciones JsonIgnoreProperties.
+· Eliminación del constructor de un solo parámetro en la clase Genero para habilitar el registro de películas.
+· Creación del archivo de instrucciones COMO_INICIAR.md para la puesta en marcha manual de los servidores.
+· Implementación del script de Windows iniciar.bat para el arranque automático de la aplicación completa.
