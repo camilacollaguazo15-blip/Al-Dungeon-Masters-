@@ -1,4 +1,4 @@
-package com.example.DungeonMastersFilms;
+package com.dungeonmastersfilms.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
