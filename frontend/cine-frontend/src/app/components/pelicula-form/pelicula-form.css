@@ -1,0 +1,145 @@
+/* src/app/components/pelicula-form/pelicula-form.css */
+
+.contenedor {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.btn-volver {
+  display: inline-block;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.btn-volver:hover {
+  color: #e50914;
+}
+
+.tarjeta-form {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.tarjeta-form h1 {
+  margin: 0 0 1.8rem;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.4rem;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.campo input,
+.campo select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.12);
+}
+
+/* Fila para dos columnas */
+.fila-dos-columnas {
+  display: flex;
+  gap: 1rem;
+}
+
+.fila-dos-columnas .campo {
+  flex: 1;
+}
+
+/* Borde rojo cuando el campo tiene error */
+.campo-error input,
+.campo-error select {
+  border-color: #dc3545;
+}
+
+.msg-error {
+  color: #dc3545;
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+}
+
+.cargando {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+.btn-cancelar {
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #555;
+  border: 1px solid #ccc;
+  background: #fff;
+  transition: background-color 0.2s;
+}
+
+.btn-cancelar:hover {
+  background: #f5f5f5;
+}
+
+.btn-guardar {
+  padding: 0.55rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: white;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-guardar:hover:not(:disabled) {
+  background-color: #b0070f;
+}
+
+.btn-guardar:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Ajustes responsivos para dos columnas */
+@media (max-width: 480px) {
+  .fila-dos-columnas {
+    flex-direction: column;
+    gap: 0;
+  }
+}

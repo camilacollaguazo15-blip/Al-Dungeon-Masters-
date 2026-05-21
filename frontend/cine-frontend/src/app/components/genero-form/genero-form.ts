@@ -21,16 +21,14 @@ export class GeneroForm {
 
   // Formulario reactivo con validaciones
   generoForm: FormGroup = this.fb.group({
-    nombre:      ['', [Validators.required, Validators.minLength(3)]],
-    descripcion: ['', [Validators.required, Validators.maxLength(250)]]
+    nombre_genero: ['', [Validators.required, Validators.minLength(3)]]
   });
 
   // Para mostrar el spinner/mensaje mientras se guarda
   guardando = false;
 
   // Getters cómodos para acceder a los controles en el HTML
-  get nombre()      { return this.generoForm.get('nombre')!; }
-  get descripcion() { return this.generoForm.get('descripcion')!; }
+  get nombre_genero() { return this.generoForm.get('nombre_genero')!; }
 
   onSubmit(): void {
     // Si hay errores de validación, marcamos todo para mostrar los mensajes
@@ -42,8 +40,7 @@ export class GeneroForm {
     this.guardando = true;
 
     const nuevoGenero: Genero = {
-      nombre:      this.generoForm.value.nombre,
-      descripcion: this.generoForm.value.descripcion
+      nombre_genero: this.generoForm.value.nombre_genero
     };
 
     // Llamamos al POST de la Persona 2

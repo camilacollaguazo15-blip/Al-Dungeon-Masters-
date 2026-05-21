@@ -26,6 +26,18 @@ export const routes: Routes = [
       import('./components/genero-detail/genero-detail').then(m => m.GeneroDetail)
   },
 
+  // PERSONA 4 — Rutas de Películas
+  {
+    path: 'peliculas',
+    loadComponent: () =>
+      import('./components/pelicula-list/pelicula-list').then(m => m.PeliculaList)
+  },
+  {
+    path: 'peliculas/nuevo',
+    loadComponent: () =>
+      import('./components/pelicula-form/pelicula-form').then(m => m.PeliculaForm)
+  },
+
   // Ruta comodín
   {
     path: '**',

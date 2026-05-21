@@ -1,6 +1,7 @@
 package com.dungeonmastersfilms.app.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Peliculas") 
@@ -19,6 +20,7 @@ public class Pelicula {
 
     @ManyToOne
     @JoinColumn(name = "id_genero") 
+    @JsonIgnoreProperties("peliculas")
     private Genero genero;
 
     public Pelicula() {}

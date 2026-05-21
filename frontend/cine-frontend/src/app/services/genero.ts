@@ -11,7 +11,7 @@ import { Pelicula } from '../models/pelicula';
 export class GeneroService {
 
   // URL base del backend Spring Boot (Persona 2)
-  private apiUrl = 'http://localhost:8080/api/generos';
+  private apiUrl = 'http://localhost:8080/generos';
 
   constructor(private http: HttpClient) {}
 

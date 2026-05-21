@@ -26,13 +26,12 @@
       <p class="vacio">No hay géneros todavía. ¡Añade el primero!</p>
     } @else {
       <ul class="lista-generos">
-        @for (genero of generos(); track genero.id) {
+        @for (genero of generos(); track genero.id_genero) {
           <li class="item-genero">
             <div class="info-genero">
-              <span class="nombre">{{ genero.nombre }}</span>
-              <span class="descripcion">{{ genero.descripcion }}</span>
+              <span class="nombre">{{ genero.nombre_genero }}</span>
             </div>
-            <a [routerLink]="['/generos', genero.id]" class="btn-ver">Ver →</a>
+            <a [routerLink]="['/generos', genero.id_genero]" class="btn-ver">Ver →</a>
           </li>
         }
       </ul>

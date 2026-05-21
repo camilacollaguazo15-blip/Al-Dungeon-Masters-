@@ -1,0 +1,49 @@
+<!-- src/app/components/pelicula-list/pelicula-list.html -->
+<div class="contenedor">
+
+  <div class="cabecera">
+    <h1>🎥 Películas</h1>
+    <a routerLink="/peliculas/nuevo" class="btn-añadir">+ Añadir película</a>
+  </div>
+
+  <!-- Indicador de carga -->
+  @if (cargando()) {
+    <div class="cargando">
+      <p>Cargando películas...</p>
+    </div>
+  }
+
+  <!-- Mensaje de error si el backend no responde -->
+  @if (error()) {
+    <div class="error">
+      <p>⚠️ {{ error() }}</p>
+    </div>
+  }
+
+  <!-- Lista de películas -->
+  @if (!cargando() && !error()) {
+    @if (peliculas().length === 0) {
+      <p class="vacio">No hay películas todavía. ¡Añade la primera!</p>
+    } @else {
+      <ul class="lista-peliculas">
+        @for (pelicula of peliculas(); track pelicula.id_pelicula) {
+          <li class="item-pelicula">
+            <div class="info-pelicula">
+              <div class="titulo-fila">
+                <span class="nombre">{{ pelicula.nombre_pelicula }}</span>
+                @if (pelicula.genero) {
+                  <span class="genero-tag">{{ pelicula.genero.nombre_genero }}</span>
+                }
+              </div>
+              <p class="descripcion">{{ pelicula.descripcion }}</p>
+            </div>
+            <div class="rating-badge">
+              ⭐ {{ pelicula.imdb_rating ? pelicula.imdb_rating.toFixed(1) : '8.0' }}
+            </div>
+          </li>
+        }
+      </ul>
+    }
+  }
+
+</div>

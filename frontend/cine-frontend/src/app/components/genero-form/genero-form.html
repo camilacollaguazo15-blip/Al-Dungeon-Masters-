@@ -9,42 +9,21 @@
     <form [formGroup]="generoForm" (ngSubmit)="onSubmit()" novalidate>
 
       <!-- Campo Nombre -->
-      <div class="campo" [class.campo-error]="nombre.invalid && nombre.touched">
-        <label for="nombre">Nombre *</label>
+      <div class="campo" [class.campo-error]="nombre_genero.invalid && nombre_genero.touched">
+        <label for="nombre_genero">Nombre *</label>
         <input
-          id="nombre"
+          id="nombre_genero"
           type="text"
-          formControlName="nombre"
+          formControlName="nombre_genero"
           placeholder="Ej: Acción, Drama, Comedia..."
         />
         <!-- Mensajes de validación -->
-        @if (nombre.touched && nombre.errors?.['required']) {
+        @if (nombre_genero.touched && nombre_genero.errors?.['required']) {
           <span class="msg-error">El nombre es obligatorio.</span>
         }
-        @if (nombre.touched && nombre.errors?.['minlength']) {
+        @if (nombre_genero.touched && nombre_genero.errors?.['minlength']) {
           <span class="msg-error">El nombre debe tener al menos 3 caracteres.</span>
         }
-      </div>
-
-      <!-- Campo Descripción -->
-      <div class="campo" [class.campo-error]="descripcion.invalid && descripcion.touched">
-        <label for="descripcion">Descripción *</label>
-        <textarea
-          id="descripcion"
-          formControlName="descripcion"
-          rows="4"
-          placeholder="Describe el género cinematográfico..."
-        ></textarea>
-        @if (descripcion.touched && descripcion.errors?.['required']) {
-          <span class="msg-error">La descripción es obligatoria.</span>
-        }
-        @if (descripcion.touched && descripcion.errors?.['maxlength']) {
-          <span class="msg-error">Máximo 250 caracteres.</span>
-        }
-        <!-- Contador de caracteres -->
-        <span class="contador">
-          {{ descripcion.value?.length || 0 }}/250
-        </span>
       </div>
 
       <!-- Botones -->

@@ -1,0 +1,91 @@
+<div class="contenedor">
+
+  <a routerLink="/peliculas" class="btn-volver">← Volver a películas</a>
+
+  <div class="tarjeta-form">
+    <h1>🎬 Nueva Película</h1>
+
+    @if (cargandoGeneros()) {
+      <p class="cargando">Cargando géneros disponibles...</p>
+    } @else {
+      <form [formGroup]="peliculaForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="campo" [class.campo-error]="titulo.invalid && titulo.touched">
+          <label for="titulo">Título de la película *</label>
+          <input
+            id="titulo"
+            type="text"
+            formControlName="titulo"
+            placeholder="Ej: Inception, Interstellar..."
+          />
+          @if (titulo.touched && titulo.errors?.['required']) {
+            <span class="msg-error">El título es obligatorio.</span>
+          }
+          @if (titulo.touched && titulo.errors?.['minlength']) {
+            <span class="msg-error">Debe tener al menos 2 caracteres.</span>
+          }
+        </div>
+
+        <div class="fila-dos-columnas">
+          <div class="campo" [class.campo-error]="anio.invalid && anio.touched">
+            <label for="anio">Año de estreno *</label>
+            <input
+              id="anio"
+              type="number"
+              formControlName="anio"
+              placeholder="Ej: 2010"
+            />
+            @if (anio.touched && anio.errors?.['required']) {
+              <span class="msg-error">El año es obligatorio.</span>
+            }
+            @if (anio.touched && (anio.errors?.['min'] || anio.errors?.['max'])) {
+              <span class="msg-error">Introduce un año de estreno válido.</span>
+            }
+          </div>
+
+          <div class="campo" [class.campo-error]="director.invalid && director.touched">
+            <label for="director">Director *</label>
+            <input
+              id="director"
+              type="text"
+              formControlName="director"
+              placeholder="Ej: Christopher Nolan..."
+            />
+            @if (director.touched && director.errors?.['required']) {
+              <span class="msg-error">El director es obligatorio.</span>
+            }
+            @if (director.touched && director.errors?.['minlength']) {
+              <span class="msg-error">Debe tener al menos 3 caracteres.</span>
+            }
+          </div>
+        </div>
+
+        <div class="campo" [class.campo-error]="generoId.invalid && generoId.touched">
+          <label for="generoId">Género Cinematográfico *</label>
+          <select id="generoId" formControlName="generoId">
+            <option value="" disabled selected>-- Selecciona un género --</option>
+            @for (gen of generos(); track gen.id_genero) {
+              <option [value]="gen.id_genero">{{ gen.nombre_genero }}</option>
+            }
+          </select>
+          @if (generoId.touched && generoId.errors?.['required']) {
+            <span class="msg-error">El género es obligatorio.</span>
+          }
+        </div>
+
+        <div class="acciones">
+          <a routerLink="/peliculas" class="btn-cancelar">Cancelar</a>
+          <button
+            type="submit"
+            class="btn-guardar"
+            [disabled]="guardando"
+          >
+            {{ guardando ? 'Guardando...' : 'Guardar película' }}
+          </button>
+        </div>
+
+      </form>
+    }
+  </div>
+
+</div>

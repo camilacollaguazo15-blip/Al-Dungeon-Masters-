@@ -1,7 +1,6 @@
 // src/app/models/genero.ts
 
 export interface Genero {
-  id?: number;
-  nombre: string;
-  descripcion: string;
+  id_genero?: number;
+  nombre_genero: string;
 }

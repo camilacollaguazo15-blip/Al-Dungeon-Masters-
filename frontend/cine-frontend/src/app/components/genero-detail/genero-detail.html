@@ -19,8 +19,7 @@
 
   @if (genero()) {
     <div class="tarjeta-genero">
-      <h1>{{ genero()!.nombre }}</h1>
-      <p class="descripcion">{{ genero()!.descripcion }}</p>
+      <h1>{{ genero()!.nombre_genero }}</h1>
     </div>
 
     
@@ -31,11 +30,11 @@
         <p class="vacio">No hay películas en este género todavía.</p>
       } @else {
         <ul class="lista-peliculas">
-          @for (peli of peliculas(); track peli.id) {
+          @for (peli of peliculas(); track peli.id_pelicula) {
             <li class="item-pelicula">
-              <span class="titulo">{{ peli.titulo }}</span>
-              <span class="anio">{{ peli.anio }}</span>
-              <span class="director">{{ peli.director }}</span>
+              <span class="titulo">{{ peli.nombre_pelicula }}</span>
+              <span class="descripcion">{{ peli.descripcion }}</span>
+              <span class="rating">⭐ {{ peli.imdb_rating }}</span>
             </li>
           }
         </ul>
