@@ -1,0 +1,43 @@
+<div class="card-lista">
+  <h2>🎥 Películas</h2>
+
+  @if (loading()) {
+    <p class="loading">Cargando películas...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else {
+    @if (peliculas().length === 0) {
+      <p class="empty">No hay películas disponibles.</p>
+    } @else {
+      <table class="tabla-peliculas">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Director</th>
+            <th>Género</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (pelicula of peliculas(); track pelicula.id) {
+            <tr>
+              <td>{{ pelicula.titulo }}</td>
+              <td>{{ pelicula.ano }}</td>
+              <td>{{ pelicula.director }}</td>
+              <td>{{ pelicula.generoNombre || 'N/A' }}</td>
+              <td class="acciones">
+                <button class="btn-editar" [routerLink]="['/peliculas', pelicula.id]">Editar</button>
+                <button class="btn-eliminar" (click)="eliminarPelicula(pelicula.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  }
+
+  <div class="acciones-principales">
+    <button class="btn-agregar" routerLink="/peliculas/nuevo">+ Añadir película</button>
+  </div>
+</div>

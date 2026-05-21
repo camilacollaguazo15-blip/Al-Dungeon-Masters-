@@ -1,0 +1,118 @@
+.card-lista {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-lista h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.tabla-peliculas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.tabla-peliculas thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.tabla-peliculas th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tabla-peliculas td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-peliculas tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btn-editar {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #218838;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+.acciones-principales {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-agregar {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-agregar:hover {
+  background-color: #0056b3;
+}
+
+.loading,
+.error,
+.empty {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.loading {
+  color: #007bff;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+.empty {
+  color: #666;
+}
