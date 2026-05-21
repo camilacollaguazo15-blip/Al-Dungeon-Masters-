@@ -3,36 +3,44 @@ package com.dungeonmastersfilms.app.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Peliculas") 
 public class Pelicula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_pelicula; 
 
-    private String titulo;
-    private int anio;
+    private String nombre_pelicula; 
+
+    @Column(columnDefinition = "TEXT") 
+    private String descripcion;
+
+    private Double imdb_rating; 
 
     @ManyToOne
-    @JoinColumn(name = "genero_id")
+    @JoinColumn(name = "id_genero") 
     private Genero genero;
 
     public Pelicula() {}
 
-    public Pelicula(String titulo, int anio, Genero genero) {
-        this.titulo = titulo;
-        this.anio = anio;
+    public Pelicula(String nombre_pelicula, String descripcion, Double imdb_rating, Genero genero) {
+        this.nombre_pelicula = nombre_pelicula;
+        this.descripcion = descripcion;
+        this.imdb_rating = imdb_rating;
         this.genero = genero;
     }
 
-    // Getters y setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId_pelicula() { return id_pelicula; }
+    public void setId_pelicula(Long id_pelicula) { this.id_pelicula = id_pelicula; }
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public String getNombre_pelicula() { return nombre_pelicula; }
+    public void setNombre_pelicula(String nombre_pelicula) { this.nombre_pelicula = nombre_pelicula; }
 
-    public int getAnio() { return anio; }
-    public void setAnio(int anio) { this.anio = anio; }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+
+    public Double getImdb_rating() { return imdb_rating; }
+    public void setImdb_rating(Double imdb_rating) { this.imdb_rating = imdb_rating; }
 
     public Genero getGenero() { return genero; }
     public void setGenero(Genero genero) { this.genero = genero; }
