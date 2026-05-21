@@ -21,30 +21,26 @@ public class GeneroController {
         this.peliculaRepository = peliculaRepository;
     }
 
-    // GET /generos
     @GetMapping
     public List<Genero> getAllGeneros() {
         return generoRepository.findAll();
     }
 
-    // GET /generos/{id}
     @GetMapping("/{id}")
     public Genero getGeneroById(@PathVariable Long id) {
         return generoRepository.findById(id).orElse(null);
     }
 
-    // POST /generos
     @PostMapping
     public Genero createGenero(@RequestBody Genero genero) {
         return generoRepository.save(genero);
     }
 
-    // GET /generos/{id}/peliculas
     @GetMapping("/{id}/peliculas")
     public List<Pelicula> getPeliculasByGenero(@PathVariable Long id) {
         return peliculaRepository.findAll()
                 .stream()
-                .filter(p -> p.getGenero() != null && p.getGenero().getId().equals(id))
+                .filter(p -> p.getGenero() != null && p.getGenero().getId_genero().equals(id))
                 .toList();
     }
 }
